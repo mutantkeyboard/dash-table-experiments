@@ -11,12 +11,12 @@ import plotly
 app = dash.Dash()
 
 app.scripts.config.serve_locally = True
-# app.css.config.serve_locally = True
+app.css.config.serve_locally = True
 
-DF_WALMART = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/1962_2006_walmart_store_openings.csv')
+DF_WALMART = pd.read_csv('./assets/1962_2006_walmart_store_openings.csv')
 
 DF_GAPMINDER = pd.read_csv(
-    'https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv'
+    './assets/gapminderDataFiveYear.csv'
 )
 DF_GAPMINDER = DF_GAPMINDER[DF_GAPMINDER['year'] == 2007]
 DF_GAPMINDER.loc[0:20]
@@ -44,7 +44,7 @@ app.layout = html.Div([
 
         # optional - sets the order of columns
         columns=sorted(DF_GAPMINDER.columns),
-
+        row_single_select=True,
         row_selectable=True,
         filterable=True,
         sortable=True,

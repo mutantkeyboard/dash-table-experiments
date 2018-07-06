@@ -47,6 +47,7 @@ app.layout = html.Div([
         # Initialise the rows
         rows=[{}],
         row_selectable=True,
+        row_single_select=True,
         filterable=True,
         sortable=True,
         selected_row_indices=[],

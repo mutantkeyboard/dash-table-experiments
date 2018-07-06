@@ -1,6 +1,7 @@
 {
   "src/components/DataTable.react.js": {
     "description": "",
+    "displayName": "DataTable",
     "methods": [
       {
         "name": "propsToState",
@@ -104,7 +105,7 @@
         "modifiers": [],
         "params": [
           {
-            "name": "rows",
+            "name": "rowSelections",
             "type": null
           }
         ],
@@ -148,7 +149,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Are the cells in the table editable?\nIf `True`, you can listen to `rows` or `row_update` to\nget the updated data.",
+        "description": "Are the cells in the table editable?\r\nIf `True`, you can listen to `rows` or `row_update` to\r\nget the updated data.",
         "defaultValue": {
           "value": "true",
           "computed": false
@@ -159,7 +160,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Should the filtering UI in the Table appear?\nIf `True`, you can listen to `rows` or `row_update` to\nget the updated data.",
+        "description": "Should the filtering UI in the Table appear?\r\nIf `True`, you can listen to `rows` or `row_update` to\r\nget the updated data.",
         "defaultValue": {
           "value": "false",
           "computed": false
@@ -170,7 +171,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Is the table sortable? If `True`, click on the column headers\nto sort by that column.\nIf `True`, you can listen to `rows` or `row_update` to\nget the updated data.",
+        "description": "Is the table sortable? If `True`, click on the column headers\r\nto sort by that column.\r\nIf `True`, you can listen to `rows` or `row_update` to\r\nget the updated data.",
         "defaultValue": {
           "value": "true",
           "computed": false
@@ -181,7 +182,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Are the columns resizble?\nIf `True`, then the columns can be resized by clicking and\ndragging on the border on the edge of the column\nheader. If `False`, they cannot be resized.",
+        "description": "Are the columns resizble?\r\nIf `True`, then the columns can be resized by clicking and\r\ndragging on the border on the edge of the column\r\nheader. If `False`, they cannot be resized.",
         "defaultValue": {
           "value": "true",
           "computed": false
@@ -205,7 +206,7 @@
           }
         },
         "required": false,
-        "description": "Order of columns. Note that the column names are specified in\n`rows` but without order. This attribute allows you to specify\na custom order for your columns."
+        "description": "Order of columns. Note that the column names are specified in\r\n`rows` but without order. This attribute allows you to specify\r\na custom order for your columns."
       },
       "row_selectable": {
         "type": {
@@ -226,6 +227,17 @@
         "description": "",
         "defaultValue": {
           "value": "[]",
+          "computed": false
+        }
+      },
+      "row_single_select": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
           "computed": false
         }
       },
@@ -262,7 +274,7 @@
           "name": "number"
         },
         "required": false,
-        "description": "Maximum number of of rows to display in the viewport.\nIf `max_rows_in_viewport` is 10, then if there are 15 rows,\nonly 10 will be displayed in the viewport but if there are 5 rows,\nthen the viewport will shrink to only show those 5 rows.\nThis takes precedence over `min_height`."
+        "description": "Maximum number of of rows to display in the viewport.\r\nIf `max_rows_in_viewport` is 10, then if there are 15 rows,\r\nonly 10 will be displayed in the viewport but if there are 5 rows,\r\nthen the viewport will shrink to only show those 5 rows.\r\nThis takes precedence over `min_height`."
       },
       "row_height": {
         "type": {
@@ -361,6 +373,7 @@
   },
   "src/components/EditableTable.react.js": {
     "description": "",
+    "displayName": "EditableTable",
     "methods": [],
     "props": {
       "id": {
@@ -368,7 +381,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The ID of the component, used to identify the component\nin Dash callbacks"
+        "description": "The ID of the component, used to identify the component\r\nin Dash callbacks"
       },
       "changed_data": {
         "type": {
@@ -390,7 +403,7 @@
           }
         },
         "required": false,
-        "description": "The data of this table, in the form of a Pandas DataFrame.to_dict()\nThe keys of the dict are the column names and the values are a\ndict that represents the column where the keys of the column are the\nvalues of the index and the values are the rows.\nFor example,\n{\n   \"Column 1\": {\"0\": \"Value A\", \"1\": \"Value B\"},\n   \"Column 2\": {\"0\": 3129, \"1\": 4931},\n}\n\nIf `editable=True`, then this `dataframe` will be updated when the\nuser changes values"
+        "description": "The data of this table, in the form of a Pandas DataFrame.to_dict()\r\nThe keys of the dict are the column names and the values are a\r\ndict that represents the column where the keys of the column are the\r\nvalues of the index and the values are the rows.\r\nFor example,\r\n{\r\n   \"Column 1\": {\"0\": \"Value A\", \"1\": \"Value B\"},\r\n   \"Column 2\": {\"0\": 3129, \"1\": 4931},\r\n}\r\n\nIf `editable=True`, then this `dataframe` will be updated when the\r\nuser changes values"
       },
       "column_order": {
         "type": {
@@ -407,7 +420,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The name of the index column.\nThis name is not included in the `dataframe` object",
+        "description": "The name of the index column.\r\nThis name is not included in the `dataframe` object",
         "defaultValue": {
           "value": "''",
           "computed": false
@@ -430,9 +443,9 @@
           "raw": "STYLE_SHAPE"
         },
         "required": false,
-        "description": "CSS styles for all of the different elements in this table.\nThe `base_styles` have a default value. If you want to remove\nall default styles, set `base_styles` to `{}`.",
+        "description": "CSS styles for all of the different elements in this table.\r\nThe `base_styles` have a default value. If you want to remove\r\nall default styles, set `base_styles` to `{}`.",
         "defaultValue": {
-          "value": "{\n    'numeric': {\n        'text-align': 'right',\n        'font-family': '\\'Droid Sans Mono\\', Courier, monospace'\n    },\n\n    'string': {\n        'text-align': 'left'\n    },\n\n    'input': {\n        'padding': 0,\n        'margin': 0,\n        'width': '80px',\n        'border': 'none',\n        'font-size': '1rem'\n    },\n\n    'input-active': {\n        'outline': '#7FDBFF auto 3px'\n    },\n\n    'table': {\n        'border-collapse': 'collapse',\n        'box-sizing': 'border-box',\n        'font-size': '1rem'\n    },\n\n    'thead': {\n        'display': 'table-row-group'\n    },\n\n    'th': {\n        'text-align': 'left',\n        'font-weight': 'normal',\n        'border': 'thin lightgrey solid',\n        'width': '80px'\n    },\n\n    'td': {\n        'white-space': 'nowrap',\n        'border': 'thin lightgrey solid',\n        'width': '80px',\n        'max-width': '80px',\n        'text-overflow': 'ellipsis',\n        'overflow-x': 'hidden'\n    }\n}",
+          "value": "{\r\n    'numeric': {\r\n        'text-align': 'right',\r\n        'font-family': '\\'Droid Sans Mono\\', Courier, monospace'\r\n    },\r\n\r\n    'string': {\r\n        'text-align': 'left'\r\n    },\r\n\r\n    'input': {\r\n        'padding': 0,\r\n        'margin': 0,\r\n        'width': '80px',\r\n        'border': 'none',\r\n        'font-size': '1rem'\r\n    },\r\n\r\n    'input-active': {\r\n        'outline': '#7FDBFF auto 3px'\r\n    },\r\n\r\n    'table': {\r\n        'border-collapse': 'collapse',\r\n        'box-sizing': 'border-box',\r\n        'font-size': '1rem'\r\n    },\r\n\r\n    'thead': {\r\n        'display': 'table-row-group'\r\n    },\r\n\r\n    'th': {\r\n        'text-align': 'left',\r\n        'font-weight': 'normal',\r\n        'border': 'thin lightgrey solid',\r\n        'width': '80px'\r\n    },\r\n\r\n    'td': {\r\n        'white-space': 'nowrap',\r\n        'border': 'thin lightgrey solid',\r\n        'width': '80px',\r\n        'max-width': '80px',\r\n        'text-overflow': 'ellipsis',\r\n        'overflow-x': 'hidden'\r\n    }\r\n}",
           "computed": false
         }
       },
@@ -442,7 +455,7 @@
           "raw": "STYLE_SHAPE"
         },
         "required": false,
-        "description": "`merged_styles` is recursively merged into `base_styles`.\nUse `merged_styles` if you want to update or overwrite a small set\nof the base styles.",
+        "description": "`merged_styles` is recursively merged into `base_styles`.\r\nUse `merged_styles` if you want to update or overwrite a small set\r\nof the base styles.",
         "defaultValue": {
           "value": "{}",
           "computed": false
@@ -470,6 +483,7 @@
   },
   "src/components/VirtualizedTable.react.js": {
     "description": "",
+    "displayName": "VirtualizedTable",
     "methods": [
       {
         "name": "cellRenderer",
@@ -490,7 +504,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The ID of the component, used to identify the component\nin Dash callbacks"
+        "description": "The ID of the component, used to identify the component\r\nin Dash callbacks"
       },
       "changed_data": {
         "type": {
@@ -527,7 +541,7 @@
           }
         },
         "required": false,
-        "description": "The data of this table, in the form of a Pandas DataFrame.to_dict('split')\nFor example,\n{\n   'columns': ['Column 1', 'Column 2', 'Column 3'],\n   'data': [[1, 2, 3], [4, 3, 1]],\n   'index': [1, 2, 3]\n}\n\nIf `editable=True`, then this `dataframe` will be updated when the\nuser changes values"
+        "description": "The data of this table, in the form of a Pandas DataFrame.to_dict('split')\r\nFor example,\r\n{\r\n   'columns': ['Column 1', 'Column 2', 'Column 3'],\r\n   'data': [[1, 2, 3], [4, 3, 1]],\r\n   'index': [1, 2, 3]\r\n}\r\n\nIf `editable=True`, then this `dataframe` will be updated when the\r\nuser changes values"
       },
       "display_index": {
         "type": {
@@ -545,7 +559,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The name of the index column.\nThis name is not included in the `dataframe` object",
+        "description": "The name of the index column.\r\nThis name is not included in the `dataframe` object",
         "defaultValue": {
           "value": "''",
           "computed": false
@@ -568,9 +582,9 @@
           "raw": "STYLE_SHAPE"
         },
         "required": false,
-        "description": "CSS styles for all of the different elements in this table.\nThe `styles` have a default value. If you want to remove\nall default styles, set `styles` to `{}`.",
+        "description": "CSS styles for all of the different elements in this table.\r\nThe `styles` have a default value. If you want to remove\r\nall default styles, set `styles` to `{}`.",
         "defaultValue": {
-          "value": "{\n    'container': {\n        'font-size': '1rem'\n    },\n    'cell': {\n        'white-space': 'nowrap',\n        'border-left': BORDER,\n        'border-bottom': BORDER,\n        'border-top': 'none',\n        'border-right': 'none',\n        'text-overflow': 'ellipsis',\n        'overflow-x': 'hidden',\n        'box-sizing': 'border-box'\n    },\n    'cell-rightmost': {\n        'border-right': BORDER\n    },\n    'header': {\n        'text-align': 'left',\n        'border-left': BORDER,\n        'border-bottom': BORDER,\n        'border-top': BORDER,\n        'font-weight': 600,\n        'display': 'inline-block',\n        'box-sizing': 'border-box'\n    },\n    'header-rightmost': {\n        'border-right': BORDER\n    }\n}",
+          "value": "{\r\n    'container': {\r\n        'font-size': '1rem'\r\n    },\r\n    'cell': {\r\n        'white-space': 'nowrap',\r\n        'border-left': BORDER,\r\n        'border-bottom': BORDER,\r\n        'border-top': 'none',\r\n        'border-right': 'none',\r\n        'text-overflow': 'ellipsis',\r\n        'overflow-x': 'hidden',\r\n        'box-sizing': 'border-box'\r\n    },\r\n    'cell-rightmost': {\r\n        'border-right': BORDER\r\n    },\r\n    'header': {\r\n        'text-align': 'left',\r\n        'border-left': BORDER,\r\n        'border-bottom': BORDER,\r\n        'border-top': BORDER,\r\n        'font-weight': 600,\r\n        'display': 'inline-block',\r\n        'box-sizing': 'border-box'\r\n    },\r\n    'header-rightmost': {\r\n        'border-right': BORDER\r\n    }\r\n}",
           "computed": false
         }
       },
